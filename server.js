@@ -1,7 +1,8 @@
 
 const express = require('express');
 const mysql = require('mysql2');
-
+// const inquirer = require('inquirer');
+fs = require('fs');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -13,14 +14,14 @@ app.use(express.urlencoded({ extended: false }));
 const db = mysql.createConnection(
     {
       host: 'localhost',
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
+      user: "root",
+      password: "Password!123",
+      database: "employee_db",
     },
     console.log(`Connected to the employee_db database.`)
   );
   
-  // A total count of what's in_stock
+//   A total count of what's in_stock
   app.get("/api/movies", (req, res) => {
     db.query('SELECT * FROM movies', (err, data) => err ? res.status(500).json(err) : res.json(data))
   })
