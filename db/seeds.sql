@@ -19,5 +19,8 @@ INSERT INTO employee(id, first_name, last_name, role_id, manager_id)
 VALUES
 
     (1, "Kovee the Clown", "Leuchovius", 1, null),
-    (2, "Bryan the Pig", "Oinker", 2, null);
+    (2, "Bryan the Pig", "Oinker", 2, null),
+    (3, "Billy", "Eyelash", 7, 2),
+    (4, "Luigi", "Mario", 4, 1);
     
+-- SELECT * From Employee WHERE manager_id IS null (For displaying managers)
