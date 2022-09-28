@@ -161,8 +161,8 @@ function addDepartment() {
         .then((answers) => {
           const newFirst = answers.firstName
           const newLast = answers.lastName
-          switch (answers.newEmpRole && answers.newEmpManager) {
-            case "Salesperson" && "Kovee the Clown": 
+          switch (answers.newEmpRole+answers.newEmpManager) {
+            case "Salesperson"+"Kovee the Clown": 
             db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
            VALUES ('${newFirst}', '${newLast}', 1, 1);`, (err, results) => {
             if (err) {
@@ -173,7 +173,7 @@ function addDepartment() {
           )
           viewEmployees()
           break;
-          case "Salesperson" && "Bryan the Pig":
+          case "Salesperson"+"Bryan the Pig":
             db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
            VALUES ('${newFirst}', '${newLast}', 1, 2);`, (err, results) => {
             if (err) {
@@ -184,7 +184,7 @@ function addDepartment() {
           )
           viewEmployees()
           break;
-          case "Lead Engineer" && "Kovee the Clown":
+          case "Lead Engineer"+"Kovee the Clown":
             db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
            VALUES ('${newFirst}', '${newLast}', 2, 1);`, (err, results) => {
             if (err) {
@@ -195,17 +195,127 @@ function addDepartment() {
           )
           viewEmployees()
           break;
-          case "Lead Engineer" && "Bryan the Pig":
-          //   db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
-          //   VALUES ('${newFirst}', '${newLast}', 2, 2);`, (err, results) => {
-          //   if (err) {
-          //     console.log(err)
-          //   }
-          //   console.table(results)
-          //   }
-          //  )
-          // viewEmployees()
-          console.log(results)
+          case "Lead Engineer"+"Bryan the Pig":
+            db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
+            VALUES ('${newFirst}', '${newLast}', 2, 2);`, (err, results) => {
+            if (err) {
+              console.log(err)
+            }
+            console.table(results)
+            }
+           )
+          viewEmployees()
+          
+          break;
+          case "Software Engineer"+"Kovee the Clown":
+            db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
+           VALUES ('${newFirst}', '${newLast}', 6, 1);`, (err, results) => {
+            if (err) {
+              console.log(err)
+            }
+            console.table(results)
+          }
+          )
+          viewEmployees()
+          break;
+          case "Software Engineer"+"Bryan the Pig":
+            db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
+           VALUES ('${newFirst}', '${newLast}', 6, 2);`, (err, results) => {
+            if (err) {
+              console.log(err)
+            }
+            console.table(results)
+          }
+          )
+          viewEmployees()
+          break;
+          case "Account Manager"+"Kovee the Clown":
+            db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
+           VALUES ('${newFirst}', '${newLast}', 3, 1);`, (err, results) => {
+            if (err) {
+              console.log(err)
+            }
+            console.table(results)
+          }
+          )
+          viewEmployees()
+          break;
+          case "Account Manager"+"Bryan the Pig":
+            db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
+           VALUES ('${newFirst}', '${newLast}', 3, 2);`, (err, results) => {
+            if (err) {
+              console.log(err)
+            }
+            console.table(results)
+          }
+          )
+          viewEmployees()
+          break;
+          case "Accountant"+"Kovee the Clown":
+            db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
+           VALUES ('${newFirst}', '${newLast}', 4, 1);`, (err, results) => {
+            if (err) {
+              console.log(err)
+            }
+            console.table(results)
+          }
+          )
+          viewEmployees()
+          break;
+          case "Accountant"+"Bryan the Pig":
+            db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
+           VALUES ('${newFirst}', '${newLast}', 4, 2);`, (err, results) => {
+            if (err) {
+              console.log(err)
+            }
+            console.table(results)
+          }
+          )
+          viewEmployees()
+          break;
+          case "Legal Team Lead"+"Kovee the Clown":
+            db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
+           VALUES ('${newFirst}', '${newLast}', 5, 1);`, (err, results) => {
+            if (err) {
+              console.log(err)
+            }
+            console.table(results)
+          }
+          )
+          viewEmployees()
+          break;
+          case "Legal Team Lead"+"Bryan the Pig":
+            db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
+           VALUES ('${newFirst}', '${newLast}', 5, 2);`, (err, results) => {
+            if (err) {
+              console.log(err)
+            }
+            console.table(results)
+          }
+          )
+          viewEmployees()
+          break;
+          case "Lawyer"+"Bryan the Pig":
+            db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
+           VALUES ('${newFirst}', '${newLast}', 7, 2);`, (err, results) => {
+            if (err) {
+              console.log(err)
+            }
+            console.table(results)
+          }
+          )
+          viewEmployees()
+          break;
+          case "Lawyer"+"Kovee the Clown":
+            db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
+           VALUES ('${newFirst}', '${newLast}', 7, 1);`, (err, results) => {
+            if (err) {
+              console.log(err)
+            }
+            console.table(results)
+          }
+          )
+          viewEmployees()
           break;
         }
 
@@ -213,6 +323,27 @@ function addDepartment() {
            )
 
     }
+
+    function addRole() {
+      inquirer.prompt([
+        {
+          type: "input",
+          message: "What is the name of the department you want to add?",
+          name: "newdeptName"
+        }
+      ])
+        .then((answers) => {
+          db.query(`INSERT INTO department (department_name)
+        VALUES ('${answers.newdeptName}');`, (err, results) => {
+            if (err) {
+              console.log(err)
+            }
+          }
+    
+          )
+          viewRoles()
+         
+        } )}
 //   If they choose to view all employees, insert this into a function.
 // Each individual if statement should have its own correlated function.
 
