@@ -328,22 +328,73 @@ function addDepartment() {
       inquirer.prompt([
         {
           type: "input",
-          message: "What is the name of the department you want to add?",
-          name: "newdeptName"
-        }
+          message: "What is the new Role that you'd like to add?",
+          name: "newRoleName"
+        },
+        {
+          type: "input",
+          message: "What is the new Role's custom salary'?",
+          name: "newRoleSalary"
+        },
+        {
+          type: "list",
+          message: "Which department does the new role belong to?",
+          choices: ["Sales", "Engineering", "Finance", "Legal"],
+          name: "newRoleDept"
+        },
       ])
         .then((answers) => {
-          db.query(`INSERT INTO department (department_name)
-        VALUES ('${answers.newdeptName}');`, (err, results) => {
-            if (err) {
-              console.log(err)
+          switch(answers.newRoleDept) {
+            case "Engineering":
+            db.query(`INSERT INTO employee_role (title, salary, department_id)
+            VALUES ('${answers.newRoleName}', ${answers.newRoleSalary}, 2);`, (err, results) => {
+              if (err) {
+                console.log(err)
+              }
             }
-          }
-    
-          )
-          viewRoles()
+      
+            )
+            viewRoles()
+          break;
+          case "Sales":
+            db.query(`INSERT INTO employee_role (title, salary, department_id)
+            VALUES ('${answers.newRoleName}', ${answers.newRoleSalary}, 1);`, (err, results) => {
+              if (err) {
+                console.log(err)
+              }
+            }
+      
+            )
+            viewRoles()
+          break;
+          case "Finance":
+            db.query(`INSERT INTO employee_role (title, salary, department_id)
+            VALUES ('${answers.newRoleName}', ${answers.newRoleSalary}, 3);`, (err, results) => {
+              if (err) {
+                console.log(err)
+              }
+            }
+      
+            )
+            viewRoles()
+          break;
+          case "Legal":
+            db.query(`INSERT INTO employee_role (title, salary, department_id)
+            VALUES ('${answers.newRoleName}', ${answers.newRoleSalary}, 4);`, (err, results) => {
+              if (err) {
+                console.log(err)
+              }
+            }
+      
+            )
+            viewRoles()
+          break;
+         }
          
-        } )}
+         
+        } 
+        )
+      }
 //   If they choose to view all employees, insert this into a function.
 // Each individual if statement should have its own correlated function.
 
