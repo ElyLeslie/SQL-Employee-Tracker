@@ -27,7 +27,7 @@ function addData() {
   inquirer.prompt([
     {
       type: "list",
-      choices: ["view all departments", "view all roles", "view all employees", "add a department", "add a role", "add an employee", "update an employee role", "Exit"],
+      choices: ["view all departments", "view all roles", "view all employees", "add a department", "add a role", "add an employee", "Exit"],
       message: "What would you like to do?",
       name: "options"
     }
@@ -395,27 +395,5 @@ function addDepartment() {
         } 
         )
       }
-//   If they choose to view all employees, insert this into a function.
-// Each individual if statement should have its own correlated function.
 
-//     db.query('SELECT * FROM employees', (err, data) => err ? res.status(500).json(err) : res.json(data))
-//   app.post('/api/add-movie', (req, res) => {
-//     // req.body
-//     db.query("INSERT INTO department (department_name) VALUES(?)", req.body.department_name, (err, data) => err ? res.status(500).json(err) : res.json(data) )
-//   });
-
-//   app.put('/api/update-review/:id', (req, res) => {
-//     db.query("UPDATE reviews SET review = ? WHERE id = ?", [req.body.review, req.params.id], (err, data) => err ? res.status(500).json(err) : res.json(data))
-//     // req.params.id
-//   });
-
-//   app.delete("/api/movie/:id", (req, res) => {
-//     db.query("DELETE FROM movies WHERE id= ?", req.params.id, (err, data) => err ? res.status(500).json(err) : res.json(data))
-//   });
-
-//   app.listen(PORT, () => {
-//     console.log(`Server running on port ${PORT}`);
-//   });
   addData()
-
-  // db.query("INSERT INTO department ")

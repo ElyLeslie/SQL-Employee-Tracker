@@ -24,3 +24,10 @@ VALUES
     (4, "Luigi", "Mario", 4, 1);
     
 -- SELECT * From Employee WHERE manager_id IS null (For displaying managers)
+
+-- UPDATE employee_role 
+-- SET 
+--     title = "${answers.updatedRole}",
+--     ...
+-- [WHERE
+--     title IS ${answers.updatedRole}];
